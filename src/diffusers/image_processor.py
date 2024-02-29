@@ -620,7 +620,7 @@ class VaeImageProcessor(ConfigMixin):
         overlay the inpaint output to the original image
         """
 
-        width, height = image.width, image.height
+        width, height = init_image.width, init_image.height
 
         init_image = self.resize(init_image, width=width, height=height)
         mask = self.resize(mask, width=width, height=height)
