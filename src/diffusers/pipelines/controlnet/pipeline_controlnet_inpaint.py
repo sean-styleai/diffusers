@@ -1289,7 +1289,8 @@ class StableDiffusionControlNetInpaintPipeline(
 
         if padding_mask_crop is not None:
             height, width = self.image_processor.get_default_height_width(image, height, width)
-            crops_coords = self.mask_processor.get_crop_region(mask_image, width, height, pad=padding_mask_crop)
+            crop_width, crop_height = image.size
+            crops_coords = self.mask_processor.get_crop_region(mask_image, crop_width, crop_height, pad=padding_mask_crop)
             resize_mode = "fill"
         else:
             crops_coords = None
